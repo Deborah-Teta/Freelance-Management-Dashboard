@@ -6,6 +6,7 @@ import ProjectList from './components/ProjectList';
 import DashboardStats from './components/DashboardStats';
 import { filterProjects, searchClients, searchProjects } from './utils/helpers';
 import type { Project } from './types';
+import PaymentList from './components/PaymentList';
 
 export default function App() {
   const { state } = useContext(AppContext);
@@ -70,6 +71,15 @@ export default function App() {
             <h2 className="text-xl font-semibold mb-4">Projects</h2>
             <ProjectList projects={statusFilteredProjects} clients={state.clients} />
           </div>
+        </div>
+          {/*Payment Record */}
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Payment Records</h2>
+          <PaymentList
+            payments={state.payments}
+            projects={state.projects}
+            clients={state.clients}
+          />
         </div>
       </div>
     </div>
