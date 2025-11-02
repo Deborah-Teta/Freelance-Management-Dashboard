@@ -1,28 +1,34 @@
+// src/types/index.ts
 export interface Client {
-    id:string;
-    name:string;
-    country:string;
-    email?:string;
+  id: string;
+  name: string;
+  country: string;
+  email?: string;
 }
+
 export interface Project {
-    id:string;
-    clientId:string;
-    title:string;
-    budget:number;
-    status:'pending'|'in-progress'|'completed';
-    paymentStatus:'paid'|'unpaid';
+  id: string;
+  clientId: string;
+  title: string;
+  budget: number;
+  status: 'pending' | 'in-progress' | 'completed';
+  paymentStatus: 'paid' | 'unpaid';
 }
+
 export interface Payment {
-    projectId:string;
-    amount:number;
-    date:string;
+  projectId: string;
+  amount: number;
+  date: string;
 }
+
 export type AppState = {
-    clients:Client[];
-    projects:Project[];
-    payments:Payment[];
-}
-// Discriminated Union for Actions
+  clients: Client[];
+  projects: Project[];
+  payments: Payment[];
+};
+
+/* ---------- Discriminated Union for Actions ---------- */
 export type AppAction =
   | { type: 'ADD_PAYMENT'; payload: Payment }
-  | { type: 'MARK_PROJECT_PAID'; payload: { projectId: string } };
+  | { type: 'MARK_PROJECT_PAID'; payload: { projectId: string } }
+  | { type: 'UNDO_MARK_PAID'; payload: { projectId: string } };
