@@ -1,6 +1,7 @@
 # Freelance Dashboard (React + TypeScript)
 
 A type-safe freelance management dashboard to track clients, projects, and payments.
+live deployed link: https://freelance-management-dashboard.vercel.app/
 
 ## Technologies Used
 - React + TypeScript
